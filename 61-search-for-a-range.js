@@ -30,15 +30,13 @@ const searchRange = function (A, target) {
       }
       return -1
     }
-    const mid = Math.floor(start/2 + end/2)
+    const mid = Math.floor((start + end) / 2)
     if (A[mid] <= target) {
-      return searchLast(A, target, mid, start)
+      return searchLast(A, target, mid, end)
     }
     return searchLast(A, target, start, mid)
   }
 
-  return [searchFirst(A, target), searchLast(A, target)]
+  return [searchFirst(A, target, 0, A.length - 1), searchLast(A, target, 0, A.length - 1)]
 
 }
-
-
